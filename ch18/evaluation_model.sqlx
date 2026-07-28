@@ -1,0 +1,15 @@
+config {
+    type: "table",
+}
+
+SELECT
+  *
+FROM
+  ML.EVALUATE (MODEL ${ref("census_income_model")},
+    (
+    SELECT
+      *
+    FROM
+      ${ref("input_data")}
+    WHERE
+      data_type = "test" ) )

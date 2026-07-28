@@ -1,0 +1,31 @@
+config {
+    type: "view",
+    columns: {
+        age: "年齢",
+        workclass: "雇用形態",
+        education: "学歴",
+        marital_status: "婚姻状況",
+        occupation: "職業",
+        hours_per_week: "週あたりの労働時間",
+        income_bracket: "所得",
+        data_type: "train or validation or test"
+    }
+}
+
+SELECT
+  age,
+  workclass,
+  education,
+  marital_status,
+  occupation,
+  hours_per_week,
+  income_bracket,
+  CASE
+    WHEN RAND() < 0.8 THEN "train"
+    ELSE "test"
+  END AS data_type
+FROM
+  ${ref("census_adult_income")}
+WHERE
+  NOT workclass LIKE "%?%"
+  AND NOT occupation LIKE "%?%"
