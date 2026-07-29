@@ -1,0 +1,19 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# 環境変数（API キーや実プロジェクト ID を含むためコミットしない）
+.env
+
+# ADK local state
+.adk/
+
+# adk deploy が生成する一時ディレクトリ
+gcloud_release_agent_tmp*/

@@ -1,0 +1,11 @@
+[project]
+name = "gcloud-release-agent"
+version = "1.0.0"
+description = "Google ADK を用いた AI エージェント開発（サンプルコード）"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "google-cloud-aiplatform[adk,agent-engines]==1.149.0",
+    "google-cloud-dataplex>=2.20.0",
+    "python-dotenv==1.2.1",
+]
