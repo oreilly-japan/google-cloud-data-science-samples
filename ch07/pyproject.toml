@@ -1,0 +1,49 @@
+[project]
+name = "google-cloud-data-science-ch07"
+version = "0.1.0"
+description = "Reader samples for chapter 7 of Google Cloud Data Science"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "cloudml-hypertune>=0.1.0.dev6,<0.2",
+    "gcsfs>=2025.5,<2027",
+    "google-cloud-aiplatform>=1.71,<2",
+    "google-cloud-scheduler>=2.16,<3",
+    "joblib>=1.4,<2",
+    "lightgbm>=4.5,<5",
+    "numpy>=2.0,<3",
+    "pandas>=2.2,<3",
+    "scikit-learn>=1.5,<2",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.11,<2",
+    "nbformat>=5.10,<6",
+    "pytest>=8.3,<9",
+    "ruff>=0.12,<1",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["."]
+check_untyped_defs = true
+ignore_missing_imports = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+exclude = ["\\.venv/"]

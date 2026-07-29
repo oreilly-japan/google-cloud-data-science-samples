@@ -1,0 +1,21 @@
+# このテンプレートを編集せず、submit_custom_training.py が値を注入した内容を確認して使う。
+studySpec:
+  metrics:
+    - metricId: rmse
+      goal: MINIMIZE
+  parameters:
+    - parameterId: learning_rate
+      doubleValueSpec: {minValue: 0.001, maxValue: 0.1}
+      scaleType: UNIT_LOG_SCALE
+    - parameterId: num_leaves
+      integerValueSpec: {minValue: 10, maxValue: 100}
+      scaleType: UNIT_LINEAR_SCALE
+  algorithm: ALGORITHM_UNSPECIFIED
+trialJobSpec:
+  workerPoolSpecs:
+    - machineSpec: {machineType: "__MACHINE_TYPE__"}
+      replicaCount: 1
+      containerSpec:
+        imageUri: "__IMAGE_URI__"
+        command: ["python", "hpt_task.py"]
+        args: ["--bucket-name=__BUCKET_NAME__"]
