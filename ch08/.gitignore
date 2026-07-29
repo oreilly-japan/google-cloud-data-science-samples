@@ -1,0 +1,13 @@
+# パイプラインのコンパイルで生成される YAML（実行時に生成されるため追跡しない）
+# ディレクトリ自体は .gitkeep で残し、クローン直後でもコンパイルできるようにしています
+src/pipeline_config/*
+!src/pipeline_config/.gitkeep
+src/xgboost_trainer/src/pipeline_config/*
+!src/xgboost_trainer/src/pipeline_config/.gitkeep
+
+# kfp component build の生成物（コマンド実行時に自動生成される）
+src/xgboost_trainer/src/component_metadata/
+src/xgboost_trainer/src/Dockerfile
+src/xgboost_trainer/src/.dockerignore
+src/xgboost_trainer/src/runtime-requirements.txt
+src/xgboost_trainer/src/kfp_config.ini
