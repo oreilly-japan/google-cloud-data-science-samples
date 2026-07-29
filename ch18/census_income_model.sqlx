@@ -1,0 +1,21 @@
+config {
+    type: "operations",
+    hasOutput: true
+}
+
+CREATE OR REPLACE MODEL ${self()}
+OPTIONS (
+    MODEL_TYPE="LOGISTIC_REG",
+    INPUT_LABEL_COLS=["income_bracket"],
+    AUTO_CLASS_WEIGHTS=TRUE,
+    DATA_SPLIT_METHOD="RANDOM",
+    DATA_SPLIT_EVAL_FRACTION=0.2,
+    DATA_SPLIT_TEST_FRACTION=0,
+    NUM_TRIALS=30
+) AS
+SELECT
+  * EXCEPT(data_type)
+FROM
+  ${ref("input_data")}
+WHERE
+  data_type = "train"

@@ -1,0 +1,6 @@
+config {
+    type: "declaration",
+    database: "bigquery-public-data",
+    schema: "ml_datasets",
+    name: "census_adult_income"
+}
