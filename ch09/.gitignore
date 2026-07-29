@@ -1,0 +1,4 @@
+# パイプラインのコンパイルで生成される YAML（実行時に生成されるため追跡しない）
+# ディレクトリ自体は .gitkeep で残し、クローン直後でもコンパイルできるようにしています
+src/pipeline_config/*
+!src/pipeline_config/.gitkeep

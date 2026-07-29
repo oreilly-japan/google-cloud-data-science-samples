@@ -1,0 +1,19 @@
+[project]
+name = "ch09"
+version = "1.0.0"
+description = "Agent Platform Inference を用いた予測基盤の構築（サンプルコード）"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "gcsfs>=2026.6.0",
+    "google-cloud-aiplatform>=1.158.0",
+    "google-cloud-artifact-registry>=1.22.0",
+    "google-cloud-logging>=3.16.0",
+    "google-cloud-monitoring>=2.31.0",
+    "google-cloud-pipeline-components>=2.22.0",
+    "joblib>=1.5.3",
+    "kfp>=2,<3",
+    "pandas>=3.0.4",
+    "python-dotenv>=1.2.2",
+    "scikit-learn==1.6.1",
+]
