@@ -1,0 +1,41 @@
+[project]
+name = "google-cloud-data-science-ch13"
+version = "0.1.0"
+description = "Reader samples for Chapter 13 of Google Cloud Data Science"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "google-cloud-aiplatform>=1.71,<2",
+    "scikit-learn>=1.5,<2",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.11,<2",
+    "pytest>=8.3,<9",
+    "ruff>=0.12,<1",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["."]
+check_untyped_defs = true
+ignore_missing_imports = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+exclude = ["\\.venv/"]
